@@ -803,6 +803,9 @@ video {
 .p-5 {
   padding: 1.25rem;
 }
+.p-4 {
+  padding: 1rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
