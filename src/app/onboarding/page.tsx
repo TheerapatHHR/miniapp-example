@@ -22,7 +22,7 @@ export default function Onboarding() {
   const onInitAuth = () => {
     initAuth(
       "ff0f19c7-7440-4e92-bdbf-8c49b641608d",
-      "openid+offline+paotangid.citizen",
+      "openid+offline+paotangid.citizen+paotangid.mobile+paotangid.email+paotangid.work_profile+paotangid.legal_address+paotangid.mailing_address+paotangid.office_address+paotangid.title+paotangid.fullname_th+paotangid.fullname_en+paotangid.gender+paotangid.birthdate",
       (authorizationCode: string) => {
         /*
           Logic to handle the authorization code received from the native app
@@ -67,7 +67,7 @@ export default function Onboarding() {
       <button onClick={onInitAuth}>
         <div className="bg-white rounded-md px-8 py-3">
           Login with Paotang
-          {status.isLoaded? "yes":"no"}
+          <div>{status.isLoaded? "isLoaded":"Done"}</div>
         </div>
       </button>
 
