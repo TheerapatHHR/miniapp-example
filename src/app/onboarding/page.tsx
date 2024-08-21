@@ -67,6 +67,7 @@ export default function Onboarding() {
       <button onClick={onInitAuth}>
         <div className="bg-white rounded-md px-8 py-3">
           Login with Paotang
+          {status.isLoaded? "yes":"no"}
         </div>
       </button>
 
