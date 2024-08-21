@@ -22,7 +22,7 @@ export default function Onboarding() {
   const onInitAuth = () => {
     initAuth(
       "ff0f19c7-7440-4e92-bdbf-8c49b641608d",
-      "openid+offline+paotangid.citizen+paotangid.mobile+paotangid.email+paotangid.work_profile+paotangid.legal_address+paotangid.mailing_address+paotangid.office_address+paotangid.title+paotangid.fullname_th+paotangid.fullname_en+paotangid.gender+paotangid.birthdate+redirect_uri",
+      "openid+offline+paotangid.citizen+paotangid.mobile+paotangid.email+paotangid.work_profile+paotangid.legal_address+paotangid.mailing_address+paotangid.office_address+paotangid.title+paotangid.fullname_th+paotangid.fullname_en+paotangid.gender+paotangid.birthdate+paotangid.redirect_uri",
       (authorizationCode: string) => {
         /*
           Logic to handle the authorization code received from the native app
