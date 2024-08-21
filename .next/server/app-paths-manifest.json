@@ -1,4 +1,8 @@
 {
   "/page": "app/page.js",
+  "/init/page": "app/init/page.js",
+  "/onboarding/page": "app/onboarding/page.js",
+  "/landing/page": "app/landing/page.js",
+  "/product/page": "app/product/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }
