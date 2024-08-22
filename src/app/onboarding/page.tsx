@@ -21,8 +21,7 @@ export default function Onboarding() {
 
   const onInitAuth = () => {
     initAuth(
-      "ff0f19c7-7440-4e92-bdbf-8c49b641608d",
-      "openid+offline+paotangid.citizen",
+      
       (authorizationCode: string) => {
         /*
           Logic to handle the authorization code received from the native app

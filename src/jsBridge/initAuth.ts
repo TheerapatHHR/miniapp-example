@@ -2,8 +2,8 @@
   This function for calling initAuth in the JSBridge
 */
 const initAuth = (
-  clientId: string,
-  scope: string, // openid+offline+paotangid.citizen    
+  // clientId: string,
+  // scope: string, // openid+offline+paotangid.citizen    
   callback: (authorizationCode: string) => void,
   callbackError: (errorCode: string, errorDescription: string) => void
 ) => {
@@ -11,15 +11,15 @@ const initAuth = (
     // android
     window.bridge.initAuthCallback = callback;
     window.bridge.initAuthCallbackError = callbackError;
-    window.JSBridge.initAuth?.(clientId, scope);
+    window.JSBridge.initAuth?.("ff0f19c7-7440-4e92-bdbf-8c49b641608d", "openid+offline+paotangid.citizen");
   } else if (window.webkit) {
     // ios
     window.bridge.initAuthCallback = callback;
     window.bridge.initAuthCallbackError = callbackError;
     window.webkit.messageHandlers.observer.postMessage({
       name: 'initAuth',
-      clientId: clientId,
-      scope: scope
+      clientId: "ff0f19c7-7440-4e92-bdbf-8c49b641608d",
+      scope: "openid+offline+paotangid.citizen"
     });
   }
 };
