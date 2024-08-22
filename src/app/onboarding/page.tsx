@@ -19,42 +19,6 @@ export default function Onboarding() {
     isLoaded: true,
   });
 
-  const onInitAuth = () => {
-    initAuth(
-      
-      (authorizationCode: string) => {
-        /*
-          Logic to handle the authorization code received from the native app
-          after successful authentication
-        */
-
-        //example
-        setStatus({
-          status: "init auth success 🎉",
-          isLoaded: false,
-        });
-        console.log("[initAuth] success 🎉");
-        console.log("[initAuth] authCode", authorizationCode);
-        router.replace(`/?authCode=${authorizationCode}`);
-      },
-      (errorCode, errorDescription) => {
-        /*
-          Logic to handle the error received from the native app 
-          after failed authentication
-        */
-
-        //example
-        setStatus({
-          status: "init auth failed 😢",
-          errorCode: errorCode,
-          errorDesc: errorDescription,
-          isLoaded: false,
-        });
-        console.log("[initAuth] failed 😢");
-        console.log("[initAuth] error:", errorCode, errorDescription);
-      }
-    )
-  }
 
   return (
     <div className="bg-cover bg-center h-screen bg-onboarding w-full flex flex-col justify-center items-center gap-5">
@@ -63,13 +27,13 @@ export default function Onboarding() {
         <div className="text-6xl text-white">Chop.</div>
         <div className="text-xl text-grey">Explore the new world of fashion</div>
       </div>
-      <button onClick={onInitAuth}>
+      <a href="/landing">
         <div className="bg-white rounded-md px-8 py-3">
           Login with Paotang
           <div>{status.isLoaded? "isLoaded":"Done"}</div>
           {/* <a href="/landing"><div>to landing</div></a> */}
         </div>
-      </button>
+      </a>
 
     </div>
   );

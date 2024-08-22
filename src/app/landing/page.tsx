@@ -1,8 +1,63 @@
 "use client";
 import Image from "next/image";
+import { useEffect } from "react";
+import initAuth from "@/jsBridge/initAuth";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
+type status = {
+    status: string;
+    errorCode?: string;
+    errorDesc?: string;
+    isLoaded: boolean;
+};
 
 export default function Landing() {
+
+    const router = useRouter();
+    const [status, setStatus] = useState<status>({
+        status: "starting to init auth...",
+        isLoaded: true,
+    });
+
+
+    useEffect(() => {
+        initAuth(
+
+            (authorizationCode: string) => {
+                /*
+                  Logic to handle the authorization code received from the native app
+                  after successful authentication
+                */
+
+                //example
+                setStatus({
+                    status: "init auth success 🎉",
+                    isLoaded: false,
+                });
+                console.log("[initAuth] success 🎉");
+                console.log("[initAuth] authCode", authorizationCode);
+                // router.replace(`/?authCode=${authorizationCode}`);
+            },
+            (errorCode, errorDescription) => {
+                /*
+                  Logic to handle the error received from the native app 
+                  after failed authentication
+                */
+
+                //example
+                setStatus({
+                    status: "init auth failed 😢",
+                    errorCode: errorCode,
+                    errorDesc: errorDescription,
+                    isLoaded: false,
+                });
+                console.log("[initAuth] failed 😢");
+                console.log("[initAuth] error:", errorCode, errorDescription);
+            }
+        )
+    }, [])
+
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
             <div className="text-white">
