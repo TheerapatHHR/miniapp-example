@@ -11,7 +11,7 @@ const initAuth = (
     // android
     window.bridge.initAuthCallback = callback;
     window.bridge.initAuthCallbackError = callbackError;
-    window.JSBridge.initAuth?.("ff0f19c7-7440-4e92-bdbf-8c49b641608d", "openid+offline+paotangid.citizen");
+    window.JSBridge.initAuth?.("ff0f19c7-7440-4e92-bdbf-8c49b641608d", "openid+offline+paotangid.citizen+paotangid.mobile+paotangid.email+paotangid.work_profile+paotangid.legal_address+paotangid.mailing_address+paotangid.office_address+paotangid.title+paotangid.fullname_th+paotangid.fullname_en+paotangid.gender+paotangid.birthdate");
   } else if (window.webkit) {
     // ios
     window.bridge.initAuthCallback = callback;
