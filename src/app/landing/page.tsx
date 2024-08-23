@@ -20,8 +20,7 @@ export default function Landing() {
         status: "starting to init auth...",
         isLoaded: true,
     });
-    const [accessToken, setAccessToken] = useState('');
-
+    let accessToken = '';
 
     useEffect(() => {
         initAuth(
@@ -58,7 +57,7 @@ export default function Landing() {
                     .then((response) => {
                         // Handle successful response
                         console.log(response.data);
-                        setAccessToken(response.data.access_token);
+                        accessToken = response.data.access_token;
                     })
                     .catch((error) => {
                         // Handle error
