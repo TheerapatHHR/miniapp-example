@@ -22,40 +22,40 @@ export default function Landing() {
 
 
     useEffect(() => {
-        initAuth(
+        // initAuth(
 
-            (authorizationCode: string) => {
-                /*
-                  Logic to handle the authorization code received from the native app
-                  after successful authentication
-                */
+        //     (authorizationCode: string) => {
+        //         /*
+        //           Logic to handle the authorization code received from the native app
+        //           after successful authentication
+        //         */
 
-                //example
-                setStatus({
-                    status: "init auth success 🎉",
-                    isLoaded: false,
-                });
-                console.log("[initAuth] success 🎉");
-                console.log("[initAuth] authCode", authorizationCode);
-                // router.replace(`/?authCode=${authorizationCode}`);
-            },
-            (errorCode, errorDescription) => {
-                /*
-                  Logic to handle the error received from the native app 
-                  after failed authentication
-                */
+        //         //example
+        //         setStatus({
+        //             status: "init auth success 🎉",
+        //             isLoaded: false,
+        //         });
+        //         console.log("[initAuth] success 🎉");
+        //         console.log("[initAuth] authCode", authorizationCode);
+        //         // router.replace(`/?authCode=${authorizationCode}`);
+        //     },
+        //     (errorCode, errorDescription) => {
+        //         /*
+        //           Logic to handle the error received from the native app 
+        //           after failed authentication
+        //         */
 
-                //example
-                setStatus({
-                    status: "init auth failed 😢",
-                    errorCode: errorCode,
-                    errorDesc: errorDescription,
-                    isLoaded: false,
-                });
-                console.log("[initAuth] failed 😢");
-                console.log("[initAuth] error:", errorCode, errorDescription);
-            }
-        )
+        //         //example
+        //         setStatus({
+        //             status: "init auth failed 😢",
+        //             errorCode: errorCode,
+        //             errorDesc: errorDescription,
+        //             isLoaded: false,
+        //         });
+        //         console.log("[initAuth] failed 😢");
+        //         console.log("[initAuth] error:", errorCode, errorDescription);
+        //     }
+        // )
     }, [])
 
     return (
