@@ -80,18 +80,22 @@ export default function Landing() {
                             method: 'post',
                             maxBodyLength: Infinity,
                             url: 'https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox',
-                            headers: { 
-                              'Authorization': 'Bearer ' + accessToken
+                            headers: {
+                                "Access-Control-Allow-Credentials": "true",
+                                "Access-Control-Allow-Origin": "*",
+                                "Access-Control-Allow-Methods": "GET,DELETE,PATCH,POST,PUT",
+                                "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+                                'Authorization': 'Bearer ' + accessToken,
                             }
-                          };
-                          
-                          axios.request(config)
-                          .then((response) => {
-                            console.log(JSON.stringify(response.data));
-                          })
-                          .catch((error) => {
-                            console.log(error);
-                          });
+                        };
+
+                        axios.request(config)
+                            .then((response) => {
+                                console.log(JSON.stringify(response.data));
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
                     })
             },
             (errorCode, errorDescription) => {
