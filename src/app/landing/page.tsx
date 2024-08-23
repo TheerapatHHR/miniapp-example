@@ -64,20 +64,33 @@ export default function Landing() {
                         console.error(error);
                     })
                     .then(() => {
-                        // const authorizationData = new URLSearchParams();
-                        // authorizationData.append('Authorization', "Bearer " + accessToken);
-                        // axios.post(``)
-                        axios.post(`https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox`, {
-                            headers: {
-                              Authorization: `Bearer ${accessToken}`,
-                            },
-                          }).then((response) => {
-                            // Handle successful response
-                            console.log(response.data);
+                        // axios.post(`https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox`, {
+                        //     headers: {
+                        //       Authorization: `Bearer ${accessToken}`,
+                        //     },
+                        //   }).then((response) => {
+                        //     // Handle successful response
+                        //     console.log(response.data);
+                        //   })
+                        //   .catch((error) => {
+                        //     // Handle error
+                        //     console.error(error);
+                        //   });
+                        let config = {
+                            method: 'post',
+                            maxBodyLength: Infinity,
+                            url: 'https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox',
+                            headers: { 
+                              'Authorization': 'Bearer ' + accessToken
+                            }
+                          };
+                          
+                          axios.request(config)
+                          .then((response) => {
+                            console.log(JSON.stringify(response.data));
                           })
                           .catch((error) => {
-                            // Handle error
-                            console.error(error);
+                            console.log(error);
                           });
                     })
             },
