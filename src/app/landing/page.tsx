@@ -15,13 +15,12 @@ type status = {
 
 export default function Landing() {
 
-    
-
     const router = useRouter();
     const [status, setStatus] = useState<status>({
         status: "starting to init auth...",
         isLoaded: true,
     });
+    const [accessToken, setAccessToken] = useState('');
 
 
     useEffect(() => {
@@ -59,11 +58,29 @@ export default function Landing() {
                     .then((response) => {
                         // Handle successful response
                         console.log(response.data);
+                        setAccessToken(response.data.access_token);
                     })
                     .catch((error) => {
                         // Handle error
                         console.error(error);
-                    });
+                    })
+                    .then(() => {
+                        // const authorizationData = new URLSearchParams();
+                        // authorizationData.append('Authorization', "Bearer " + accessToken);
+                        // axios.post(``)
+                        axios.post(`https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox`, {
+                            headers: {
+                              Authorization: `Bearer ${accessToken}`,
+                            },
+                          }).then((response) => {
+                            // Handle successful response
+                            console.log(response.data);
+                          })
+                          .catch((error) => {
+                            // Handle error
+                            console.error(error);
+                          });
+                    })
             },
             (errorCode, errorDescription) => {
                 /*
