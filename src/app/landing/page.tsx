@@ -49,6 +49,7 @@ export default function Landing() {
 
                 data.append('client_id', "ff0f19c7-7440-4e92-bdbf-8c49b641608d");
                 data.append('client_secret', "KN9RwJEcm1cdnPPo3sPRxHbzbCJR0T");
+                data.append('state', "test");
 
                 axios.post(`https://paotang-id-external-uat.th-service.co.in/oauth2/token`, data, {
                     headers: {
