@@ -28,9 +28,11 @@ export default function Landing() {
         GetAccessToken().then((response) => {
             console.log("response token = "+response?.data.access_token);
             localStorage.setItem("access_token", response?.data.access_token);
-            customerData = GetCustomerProfile();
+            GetCustomerProfile().then((response) => {
+                console.log(response);
+            });
         });
-        console.log(JSON.parse(customerData || ''));
+        // console.log(JSON.parse(customerData || ''));
     }, [])
 
 
