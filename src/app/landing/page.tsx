@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect } from "react";
 import initAuth from "@/jsBridge/initAuth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
