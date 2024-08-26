@@ -9,7 +9,7 @@ export const InitialTransaction = async () => {
         'compCode': '86279',
         'paymentMethod': 'KTB-PT',
         'partnerTxnRef': '{{$uuid}}',
-        'amount': '100.10',
+        'amount': 100.10,
         'ref1value': '1',
     }
 
@@ -24,7 +24,7 @@ export const InitialTransaction = async () => {
         'partnerInfo': partnerInfo,
     }
     try {
-        return await axios.post(url, data, { headers });
+        return await axios.post(url, JSON.stringify(data), { headers });
     } catch (error) {
         return error;
     }
