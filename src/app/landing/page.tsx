@@ -7,6 +7,7 @@ import axios from 'axios';
 // import FetchCustomerBtn from "./fetchCustomerBtn";
 import { GetAccessToken } from "./getAccessToken";
 import { GetCustomerProfile } from "./getCustomerProfile";
+import { GetPwpToken } from "./getPwpToken";
 
 type status = {
     status: string;
@@ -34,6 +35,12 @@ export default function Landing() {
         });
         // console.log(JSON.parse(customerData || ''));
     }, [])
+
+    const handlePwp = () => {
+        GetPwpToken().then((response) => {
+            console.log("pwp token = "+response?.data.access_token);
+        })
+    }
 
 
     return (
@@ -119,6 +126,7 @@ export default function Landing() {
                             />
                         </div>
                     </div>
+                    <button onClick={handlePwp}>pay with paotang</button>
                 </div>
             )
             }
