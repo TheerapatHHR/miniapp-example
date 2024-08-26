@@ -1,7 +1,7 @@
 import Image from "next/image";
 import initAuth from "@/jsBridge/initAuth";
 // import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import axios from 'axios';
 
 type status = {
@@ -13,7 +13,7 @@ type status = {
 
 export default function Landing() {
 
-    const router = useRouter();
+    // const router = useRouter();
     // const [status, setStatus] = useState<status>({
     //     status: "starting to init auth...",
     //     isLoaded: true,
