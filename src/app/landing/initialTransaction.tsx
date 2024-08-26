@@ -14,7 +14,7 @@ export const InitialTransaction = async () => {
     }
 
     const partnerInfo = {
-        "deeplink": "https://partner.url.com/paymentResult?ref=abc&destination=miniapp&miniAppUUID=b0e852e1-9719-4cb2-b922-075f1e33ccce"
+        "deeplink": "https://partner.url.com/paymentResult"
     }
 
 
