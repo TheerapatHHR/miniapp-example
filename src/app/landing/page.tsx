@@ -45,7 +45,7 @@ export default function Landing() {
 
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
-            {status.isLoaded ? (
+            {/* {status.isLoaded ? (
                 <Image
                     className="animate-spin"
                     src={"/assets/icons/spinner.svg"}
@@ -53,7 +53,7 @@ export default function Landing() {
                     height={16}
                     alt="loading"
                 />
-            ) : (
+            ) : ( */}
                 <div>
                     <div className="text-white">
                         <div>Hi, Aomsin</div>
@@ -128,8 +128,8 @@ export default function Landing() {
                     </div>
                     <button onClick={handlePwp}>pay with paotang</button>
                 </div>
-            )
-            }
+            {/* )
+            } */}
         </div>
 
     );
