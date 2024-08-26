@@ -120,7 +120,7 @@ export default function Landing() {
         "use server"
         initAuth(
 
-            (authorizationCode: string) => {
+            async (authorizationCode: string) => {
                 /*
                   Logic to handle the authorization code received from the native app
                   after successful authentication
@@ -144,7 +144,7 @@ export default function Landing() {
                 data.append('client_secret', "KN9RwJEcm1cdnPPo3sPRxHbzbCJR0T");
                 data.append('state', "testtest");
 
-                axios.post(`https://paotang-id-external-uat.th-service.co.in/oauth2/token`, data, {
+                await axios.post(`https://paotang-id-external-uat.th-service.co.in/oauth2/token`, data, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
@@ -158,7 +158,7 @@ export default function Landing() {
                         // Handle error
                         console.error(error);
                     })
-                    .then(() => {
+                    .then(async () => {
                         // axios.post(`https://paotang-openapi-sandbox-uat.th-service.co.in/v1/paotangid/get-customer-profile-sandbox`, {
                         //     headers: {
                         //       Authorization: `Bearer ${accessToken}`,
@@ -184,7 +184,7 @@ export default function Landing() {
                             }
                         };
 
-                        axios.request(config)
+                        await axios.request(config)
                             .then((response) => {
                                 console.log(JSON.stringify(response.data));
                             })
