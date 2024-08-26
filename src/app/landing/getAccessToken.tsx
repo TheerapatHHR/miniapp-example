@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export const GetAccessToken = async() => {
-    const authCode = localStorage.getItem("authCode");
+    // const authCode = localStorage.getItem("authCode");
+    const urlParams = new URLSearchParams(window.location.search);
+    const authCode = urlParams.get('authCode');
     const data = new URLSearchParams();
         data.append('code', authCode || '');
         data.append('grant_type', 'authorization_code');
