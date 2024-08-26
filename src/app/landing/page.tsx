@@ -212,6 +212,15 @@ export default function Landing() {
         )
     }
 
+    async function create() {
+        "use server";
+        const data = await fetch("https://api.publicapis.org/entries").then(
+          (res) => res.json()
+        );
+  
+        console.log(data);
+      }
+
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
             {/* {status.isLoaded ? (
@@ -236,7 +245,7 @@ export default function Landing() {
                         <div>Woman</div>
                     </div>
                     <div>
-                        <button onClick={() => fetchCustomer}>Fetch Customer</button>
+                        <button onClick={() => create()}>Fetch Customer</button>
                         {/* <FetchCustomerBtn /> */}
                     </div>
                     <div className="grid grid-cols-2 text-white gap-4 p-5">
