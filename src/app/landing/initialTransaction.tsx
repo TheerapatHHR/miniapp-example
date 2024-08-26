@@ -3,7 +3,7 @@ import axios from "axios";
 export const InitialTransaction = async () => {
     const token = localStorage.getItem("pwpToken");
     const url = `api/transaction`;
-    const headers = { 'Authorization': `Bearer ${token}`, }
+    const headers = { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
 
     const paymentInfo = {
         'compCode': '86279',
