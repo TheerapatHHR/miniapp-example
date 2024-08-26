@@ -3,5 +3,5 @@ import { FetchCustomer } from "./fetchCustomer";
 
 export default function FetchCustomerBtn() {
     
-  return <button onClick={FetchCustomer}>Click Me</button>;
+  return <button onClick={FetchCustomer} className="text-white">Click Me</button>;
 }
