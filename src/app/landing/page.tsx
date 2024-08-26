@@ -1,6 +1,6 @@
 import Image from "next/image";
 import initAuth from "@/jsBridge/initAuth";
-import { useState } from "react";
+// import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from 'axios';
 
@@ -14,10 +14,10 @@ type status = {
 export default function Landing() {
 
     const router = useRouter();
-    const [status, setStatus] = useState<status>({
-        status: "starting to init auth...",
-        isLoaded: true,
-    });
+    // const [status, setStatus] = useState<status>({
+    //     status: "starting to init auth...",
+    //     isLoaded: true,
+    // });
     let accessToken = '';
 
     // useEffect(() => {
@@ -125,10 +125,10 @@ export default function Landing() {
                 */
 
                 //example
-                setStatus({
-                    status: "init auth success 🎉",
-                    isLoaded: false,
-                });
+                // setStatus({
+                //     status: "init auth success 🎉",
+                //     isLoaded: false,
+                // });
                 console.log("[initAuth] success 🎉");
                 console.log("[initAuth] authCode", authorizationCode);
                 // router.replace(`/?authCode=${authorizationCode}`);
@@ -198,12 +198,12 @@ export default function Landing() {
                 */
 
                 //example
-                setStatus({
-                    status: "init auth failed 😢",
-                    errorCode: errorCode,
-                    errorDesc: errorDescription,
-                    isLoaded: false,
-                });
+                // setStatus({
+                //     status: "init auth failed 😢",
+                //     errorCode: errorCode,
+                //     errorDesc: errorDescription,
+                //     isLoaded: false,
+                // });
                 console.log("[initAuth] failed 😢");
                 console.log("[initAuth] error:", errorCode, errorDescription);
             }
@@ -212,7 +212,7 @@ export default function Landing() {
 
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
-            {status.isLoaded ? (
+            {/* {status.isLoaded ? (
                 <Image
                     className="animate-spin"
                     src={"/assets/icons/spinner.svg"}
@@ -220,7 +220,7 @@ export default function Landing() {
                     height={16}
                     alt="loading"
                 />
-            ) : (
+            ) : ( */}
                 <div>
                     <div className="text-white">
                         <div>Hi, Aomsin</div>
@@ -293,8 +293,8 @@ export default function Landing() {
                         </div>
                     </div>
                 </div>
-            )
-            }
+            {/* )
+            } */}
         </div>
 
     );
