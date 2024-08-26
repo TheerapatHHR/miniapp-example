@@ -19,7 +19,7 @@ const initAuth = (
     window.webkit.messageHandlers.observer.postMessage({
       name: 'initAuth',
       clientId: "ff0f19c7-7440-4e92-bdbf-8c49b641608d",
-      scope: "openid+offline+paotangid.citizen"
+      scope: "openid+offline+paotangid.citizen+paotangid.mobile+paotangid.email+paotangid.work_profile+paotangid.legal_address+paotangid.mailing_address+paotangid.office_address+paotangid.title+paotangid.fullname_th+paotangid.fullname_en+paotangid.gender+paotangid.birthdate"
     });
   }
 };
