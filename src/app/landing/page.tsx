@@ -1,7 +1,8 @@
+"use client"
 import Image from "next/image";
 import initAuth from "@/jsBridge/initAuth";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from 'axios';
 // import FetchCustomerBtn from "./fetchCustomerBtn";
 
@@ -14,11 +15,11 @@ type status = {
 
 export default function Landing() {
 
-    // const router = useRouter();
-    // const [status, setStatus] = useState<status>({
-    //     status: "starting to init auth...",
-    //     isLoaded: true,
-    // });
+    const router = useRouter();
+    const [status, setStatus] = useState<status>({
+        status: "starting to init auth...",
+        isLoaded: true,
+    });
     let accessToken = '';
 
     // useEffect(() => {
@@ -212,18 +213,18 @@ export default function Landing() {
     //     )
     // }
 
-    async function create() {
-        "use server";
-        const data = await fetch("https://api.publicapis.org/entries").then(
-          (res) => res.json()
-        );
+    // async function create() {
+    //     "use server";
+    //     const data = await fetch("https://api.publicapis.org/entries").then(
+    //       (res) => res.json()
+    //     );
   
-        console.log(data);
-      }
+    //     console.log(data);
+    //   }
 
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
-            {/* {status.isLoaded ? (
+            {status.isLoaded ? (
                 <Image
                     className="animate-spin"
                     src={"/assets/icons/spinner.svg"}
@@ -231,7 +232,7 @@ export default function Landing() {
                     height={16}
                     alt="loading"
                 />
-            ) : ( */}
+            ) : (
                 <div>
                     <div className="text-white">
                         <div>Hi, Aomsin</div>
@@ -245,7 +246,7 @@ export default function Landing() {
                         <div>Woman</div>
                     </div>
                     <div>
-                        <button onClick={() => create()}>Fetch Customer</button>
+                        {/* <button onClick={() => create()}>Fetch Customer</button> */}
                         {/* <FetchCustomerBtn /> */}
                     </div>
                     <div className="grid grid-cols-2 text-white gap-4 p-5">
@@ -305,8 +306,8 @@ export default function Landing() {
                         </div>
                     </div>
                 </div>
-            {/* )
-            } */}
+             )
+            }
         </div>
 
     );
