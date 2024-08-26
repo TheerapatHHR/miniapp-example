@@ -24,7 +24,7 @@ export const InitialTransaction = async () => {
         'partnerInfo': partnerInfo,
     }
     try {
-        return await axios.post(url, JSON.stringify(data), { headers });
+        return await axios.post(url, data, { headers });
     } catch (error) {
         return error;
     }
