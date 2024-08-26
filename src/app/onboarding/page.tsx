@@ -36,7 +36,7 @@ export default function Onboarding() {
           console.log("[initAuth] success 🎉");
           console.log("[initAuth] authCode", authorizationCode);
           // router.replace(`/?authCode=${authorizationCode}`);
-          // localStorage.setItem("authCode", authorizationCode);
+          localStorage.setItem("authCode", authorizationCode);
           // router.push(`/landing?authCode=${authorizationCode}`)
       },
       (errorCode, errorDescription) => {

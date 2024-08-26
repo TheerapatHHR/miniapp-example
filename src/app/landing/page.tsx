@@ -27,7 +27,8 @@ export default function Landing() {
         let customerData;
         GetAccessToken().then((response) => {
             console.log("response token = "+response?.data.access_token);
-            customerData = GetCustomerProfile(response?.data.access_token);
+            localStorage.setItem("access_token", response?.data.access_token);
+            customerData = GetCustomerProfile();
         });
         console.log(JSON.parse(customerData || ''));
     }, [])
