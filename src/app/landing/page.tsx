@@ -8,6 +8,7 @@ import axios from 'axios';
 import { GetAccessToken } from "./getAccessToken";
 import { GetCustomerProfile } from "./getCustomerProfile";
 import { GetPwpToken } from "./getPwpToken";
+import { InitialTransaction } from "./initialTransaction";
 
 type status = {
     status: string;
@@ -38,7 +39,11 @@ export default function Landing() {
 
     const handlePwp = () => {
         GetPwpToken().then((response) => {
-            console.log("pwp token = "+response?.data.access_token);
+            console.log("pwp token = "+response?.data.data.access_token);
+            localStorage.setItem("pwpToken", response?.data.data.access_token);
+            InitialTransaction().then((response) => {
+                console.log(response);
+            })
         })
     }
 
