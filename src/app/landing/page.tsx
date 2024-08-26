@@ -22,7 +22,6 @@ export default function Landing() {
         status: "starting to init auth...",
         isLoaded: true,
     });
-    let accessToken = '';
 
     useEffect(() => {
         let customerData;
