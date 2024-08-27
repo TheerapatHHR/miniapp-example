@@ -41,11 +41,40 @@ export default function Landing() {
         GetPwpToken().then((response) => {
             console.log("pwp token = "+response?.data.data.access_token);
             localStorage.setItem("pwpToken", response?.data.data.access_token);
-            InitialTransaction().then((response) => {
+            InitialTransaction().then((response: any) => {
                 console.log(response);
+                localStorage.setItem('txnRefId', response?.data.txnRefId);
             })
         })
     }
+
+    const openPwP = (
+        ppoaTnxRefId: any,
+        callbackError = (errorCode: any, errorDescription: any) => {
+          console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+        }
+      ) => {
+        if (window.JSBridge) {
+          // Android
+          window.bridge.openPwPCallbackError = callbackError;
+          window.JSBridge.openPwP?.(ppoaTnxRefId);
+        } else if (window.webkit) {
+          // iOS
+          window.bridge.openPwPCallbackError = callbackError;
+          window.webkit.messageHandlers.observer.postMessage({
+            name: 'openPwP',
+            ppoaTnxRefId: ppoaTnxRefId
+          });
+        }
+      };
+
+      const handleOpenPwp = () => {
+        const txnRefId = localStorage.getItem('txnRefId');
+        openPwP(txnRefId, (errorCode, errorDescription) => {
+            // Handle error
+            console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+          });
+      }
 
 
     return (
@@ -131,7 +160,8 @@ export default function Landing() {
                             />
                         </div>
                     </div>
-                    <button onClick={handlePwp}>pay with paotang</button>
+                    <button onClick={handlePwp} className="text-white">pay with paotang</button>
+                    <button onClick={handleOpenPwp} className="text-white">openPwP</button>
                 </div>
             {/* )
             } */}
