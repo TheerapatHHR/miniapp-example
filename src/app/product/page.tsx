@@ -2,7 +2,7 @@
 import React from "react";
 import { GetPwpToken } from "../landing/getPwpToken";
 import { InitialTransaction } from "../landing/initialTransaction";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Product = () => {
   const router = useRouter();
