@@ -25,8 +25,8 @@ export const InitialTransaction = async () => {
     }
     try {
         return await axios.post(url, data, { headers });
-    } catch (error) {
-        return error;
+    } catch (error: any) {
+        return error.response.data;
     }
 }
 
