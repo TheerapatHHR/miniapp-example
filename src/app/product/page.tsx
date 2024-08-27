@@ -2,8 +2,10 @@
 import React from "react";
 import { GetPwpToken } from "../landing/getPwpToken";
 import { InitialTransaction } from "../landing/initialTransaction";
+import { useRouter } from "next/router";
 
 const Product = () => {
+  const router = useRouter();
 
   const handlePwp = () => {
     GetPwpToken().then((response) => {
@@ -40,6 +42,7 @@ const openPwP = (
     const txnRefId = localStorage.getItem('txnRefId');
     openPwP(txnRefId, (errorCode, errorDescription) => {
         // Handle error
+        router.push('/fail');
         console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
       });
   }
@@ -47,6 +50,7 @@ const openPwP = (
   const handleClickBuyNow = async () => {
     await handlePwp();
     await handleOpenPwp();
+    // await router.push('/success');
   };
   return (
     <div className="w-full h-screen bg-product bg-cover bg-center px-6 py-8">
