@@ -160,7 +160,7 @@ export default function Landing() {
                             />
                         </div>
                     </div>
-                    <button onClick={handlePwp} className="text-white">pay with paotang</button>
+                    <button onClick={handlePwp} className="text-white p-5">pay with paotang</button>
                     <button onClick={handleOpenPwp} className="text-white">openPwP</button>
                 </div>
             {/* )
