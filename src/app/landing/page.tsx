@@ -43,7 +43,7 @@ export default function Landing() {
             localStorage.setItem("pwpToken", response?.data.data.access_token);
             InitialTransaction().then((response: any) => {
                 console.log(response);
-                localStorage.setItem('txnRefId', response?.data.txnRefId);
+                localStorage.setItem('txnRefId', response?.data.data.txnRefId);
             })
         })
     }
