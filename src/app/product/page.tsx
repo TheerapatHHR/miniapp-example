@@ -45,6 +45,7 @@ const openPwP = (
         router.push('/fail');
         console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
       });
+      router.push('/success');
   }
 
   const handleClickBuyNow = async () => {
