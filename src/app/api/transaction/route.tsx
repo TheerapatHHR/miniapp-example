@@ -5,6 +5,7 @@ import axios from "axios";
 
 export async function POST(request: NextRequest) {
     const header = await request.headers.get("Authorization");
+    console.log("route");
     console.log(request.body);
     // const header = await request.headers.get("Authorization");
     // const url = `${process.env.PAOTANG_API_URL}/v1/paotangpass/get-customer-profile-sandbox`;
