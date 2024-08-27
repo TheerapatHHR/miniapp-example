@@ -32,44 +32,48 @@ export default function Landing() {
         });
     }, [])
 
-    const handlePwp = () => {
-        GetPwpToken().then((response) => {
-            console.log("pwp token = "+response?.data.data.access_token);
-            localStorage.setItem("pwpToken", response?.data.data.access_token);
-            InitialTransaction().then((response: any) => {
-                console.log(response);
-                localStorage.setItem('txnRefId', response?.data.txnRefId);
-            })
-        })
+    const handleProduct = () => {
+        router.push('/product');
     }
 
-    const openPwP = (
-        ppoaTnxRefId: any,
-        callbackError = (errorCode: any, errorDescription: any) => {
-          console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
-        }
-      ) => {
-        if (window.JSBridge) {
-          // Android
-          window.bridge.openPwPCallbackError = callbackError;
-          window.JSBridge.openPwP?.(ppoaTnxRefId);
-        } else if (window.webkit) {
-          // iOS
-          window.bridge.openPwPCallbackError = callbackError;
-          window.webkit.messageHandlers.observer.postMessage({
-            name: 'openPwP',
-            ppoaTnxRefId: ppoaTnxRefId
-          });
-        }
-      };
+    // const handlePwp = () => {
+    //     GetPwpToken().then((response) => {
+    //         console.log("pwp token = "+response?.data.data.access_token);
+    //         localStorage.setItem("pwpToken", response?.data.data.access_token);
+    //         InitialTransaction().then((response: any) => {
+    //             console.log(response);
+    //             localStorage.setItem('txnRefId', response?.data.txnRefId);
+    //         })
+    //     })
+    // }
 
-      const handleOpenPwp = () => {
-        const txnRefId = localStorage.getItem('txnRefId');
-        openPwP(txnRefId, (errorCode, errorDescription) => {
-            // Handle error
-            console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
-          });
-      }
+    // const openPwP = (
+    //     ppoaTnxRefId: any,
+    //     callbackError = (errorCode: any, errorDescription: any) => {
+    //       console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+    //     }
+    //   ) => {
+    //     if (window.JSBridge) {
+    //       // Android
+    //       window.bridge.openPwPCallbackError = callbackError;
+    //       window.JSBridge.openPwP?.(ppoaTnxRefId);
+    //     } else if (window.webkit) {
+    //       // iOS
+    //       window.bridge.openPwPCallbackError = callbackError;
+    //       window.webkit.messageHandlers.observer.postMessage({
+    //         name: 'openPwP',
+    //         ppoaTnxRefId: ppoaTnxRefId
+    //       });
+    //     }
+    //   };
+
+    //   const handleOpenPwp = () => {
+    //     const txnRefId = localStorage.getItem('txnRefId');
+    //     openPwP(txnRefId, (errorCode, errorDescription) => {
+    //         // Handle error
+    //         console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+    //       });
+    //   }
 
 
     return (
@@ -89,10 +93,10 @@ export default function Landing() {
                     <div>
                     </div>
                     <div className="grid grid-cols-2 text-white gap-4 p-5 h-[70vh]">
-                        <div className="rounded-md flex justify-center">
+                        <div className="rounded-md flex justify-center" onClick={handleProduct}>
                             <Image
                                 src={"/assets/materials/landing_item1.jpeg"}
-                                className="w-ful h-full"
+                                className=""
                                 width={100}
                                 height={96}
                                 alt="item1"
@@ -102,7 +106,7 @@ export default function Landing() {
                             <Image
                                 src={"/assets/materials/landing_item2.png"}
                                 className=""
-                                width={96}
+                                width={100}
                                 height={96}
                                 alt="item2"
                             />
@@ -111,7 +115,7 @@ export default function Landing() {
                             <Image
                                 src={"/assets/materials/landing_item3.png"}
                                 className=""
-                                width={96}
+                                width={100}
                                 height={96}
                                 alt="item3"
                             />
@@ -120,7 +124,7 @@ export default function Landing() {
                             <Image
                                 src={"/assets/materials/landing_item4.png"}
                                 className=""
-                                width={96}
+                                width={100}
                                 height={96}
                                 alt="item4"
                             />
@@ -129,7 +133,7 @@ export default function Landing() {
                             <Image
                                 src={"/assets/materials/landing_item5.png"}
                                 className=""
-                                width={96}
+                                width={100}
                                 height={96}
                                 alt="item5"
                             />
@@ -138,7 +142,7 @@ export default function Landing() {
                             <Image
                                 src={"/assets/materials/landing_item6.png"}
                                 className=""
-                                width={96}
+                                width={100}
                                 height={96}
                                 alt="item6"
                             />

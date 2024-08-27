@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     const partnerInfo = {
-        "deeplink": "https://miniapp-example-puce.vercel.app/"
+        "deeplink": "https://miniapp-example-puce.vercel.app/success"
     }
 
     const data = {

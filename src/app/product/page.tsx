@@ -1,8 +1,53 @@
 "use client";
 import React from "react";
+import { GetPwpToken } from "../landing/getPwpToken";
+import { InitialTransaction } from "../landing/initialTransaction";
 
 const Product = () => {
-  const handleClickBuyNow = () => {};
+
+  const handlePwp = () => {
+    GetPwpToken().then((response) => {
+        console.log("pwp token = "+response?.data.data.access_token);
+        localStorage.setItem("pwpToken", response?.data.data.access_token);
+        InitialTransaction().then((response: any) => {
+            console.log(response);
+            localStorage.setItem('txnRefId', response?.data.txnRefId);
+        })
+    })
+}
+
+const openPwP = (
+    ppoaTnxRefId: any,
+    callbackError = (errorCode: any, errorDescription: any) => {
+      console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+    }
+  ) => {
+    if (window.JSBridge) {
+      // Android
+      window.bridge.openPwPCallbackError = callbackError;
+      window.JSBridge.openPwP?.(ppoaTnxRefId);
+    } else if (window.webkit) {
+      // iOS
+      window.bridge.openPwPCallbackError = callbackError;
+      window.webkit.messageHandlers.observer.postMessage({
+        name: 'openPwP',
+        ppoaTnxRefId: ppoaTnxRefId
+      });
+    }
+  };
+
+  const handleOpenPwp = () => {
+    const txnRefId = localStorage.getItem('txnRefId');
+    openPwP(txnRefId, (errorCode, errorDescription) => {
+        // Handle error
+        console.error(`Error Code: ${errorCode}, Error Description: ${errorDescription}`);
+      });
+  }
+
+  const handleClickBuyNow = async () => {
+    await handlePwp();
+    await handleOpenPwp();
+  };
   return (
     <div className="w-full h-screen bg-product bg-cover bg-center px-6 py-8">
       <div className="h-full flex flex-col justify-end">
