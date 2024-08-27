@@ -14,7 +14,7 @@ export const InitialTransaction = async () => {
     }
 
     const partnerInfo = {
-        "deeplink": "https://partner.url.com/paymentResult"
+        "deeplink": "https://miniapp-example-puce.vercel.app/"
     }
 
 
