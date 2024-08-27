@@ -1,11 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import axios from "axios";
 
-
-
 export async function POST(request: NextRequest) {
     const header = await request.headers.get("Authorization");
-    // const data = request.body;
 
     const paymentInfo = {
         'compCode': '86279',
@@ -19,13 +16,11 @@ export async function POST(request: NextRequest) {
         "deeplink": "https://miniapp-example-puce.vercel.app/"
     }
 
-
     const data = {
         'partnerTxnCreatedDt': '2024-04-09T06:24:05+07:00',
         'paymentInfo': paymentInfo,
         'partnerInfo': partnerInfo,
     }
-    // const url = `${process.env.PAOTANG_API_URL}/v1/paotangpass/get-customer-profile-sandbox`;
     const url = `https://oapi-2-legged-external-sandbox-gw-uat.arisetech.dev/pwp/v1/open-api/payment/deeplink`;
     try {
         const resp = await  axios.post(url, data, { headers: { Authorization: header } });

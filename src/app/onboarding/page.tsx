@@ -66,11 +66,6 @@ export default function Onboarding() {
         <div className="text-6xl text-white">Chop.</div>
         <div className="text-xl text-grey">Explore the new world of fashion</div>
       </div>
-      {/* <a href="/landing">
-        <div className="bg-white rounded-md px-8 py-3">
-          Login with Paotang
-        </div>
-      </a> */}
       <div onClick={onInitAuth}>
         <div className="bg-white rounded-md px-8 py-3">
           Login with Paotang

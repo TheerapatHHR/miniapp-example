@@ -14,7 +14,7 @@ const Product = () => {
             dolor, vel pulvinar elit aliquet sed.
           </p>
           <div className="flex flex-row justify-between">
-            <p className="text-xl font-bold text-black">฿ 999.00</p>
+            <p className="text-xl font-bold text-black">฿ 100.10</p>
             <button
               className="rounded-lg bg-black text-white px-4 py-2"
               onClick={() => handleClickBuyNow()}

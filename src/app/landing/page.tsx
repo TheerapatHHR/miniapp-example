@@ -1,10 +1,7 @@
 "use client"
 import Image from "next/image";
-import initAuth from "@/jsBridge/initAuth";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from 'axios';
-// import FetchCustomerBtn from "./fetchCustomerBtn";
 import { GetAccessToken } from "./getAccessToken";
 import { GetCustomerProfile } from "./getCustomerProfile";
 import { GetPwpToken } from "./getPwpToken";
@@ -26,7 +23,6 @@ export default function Landing() {
     });
 
     useEffect(() => {
-        let customerData;
         GetAccessToken().then((response) => {
             console.log("response token = "+response?.data.access_token);
             localStorage.setItem("access_token", response?.data.access_token);
@@ -34,7 +30,6 @@ export default function Landing() {
                 console.log(response);
             });
         });
-        // console.log(JSON.parse(customerData || ''));
     }, [])
 
     const handlePwp = () => {
@@ -79,33 +74,22 @@ export default function Landing() {
 
     return (
         <div className="bg-cover bg-center h-screen bg-[#141414]">
-            {/* {status.isLoaded ? (
-                <Image
-                    className="animate-spin"
-                    src={"/assets/icons/spinner.svg"}
-                    width={16}
-                    height={16}
-                    alt="loading"
-                />
-            ) : ( */}
                 <div>
-                    <div className="text-white">
-                        <div>Hi, Aomsin</div>
+                    <div className="text-white pt-10">
+                        <div className="font-bold text-3xl">Hi, Aomsin</div>
                         <div>We have prepared <span className="text-primary">new products</span> for you</div>
                     </div>
-                    <div className="text-grey flex flex-row justify-around">
-                        <div>All</div>
+                    <div className="text-grey flex flex-row justify-around p-5">
+                        <div className="text-primary">All</div>
                         <div>Newest</div>
                         <div>Popular</div>
                         <div>Man</div>
                         <div>Woman</div>
                     </div>
                     <div>
-                        {/* <button onClick={() => create()}>Fetch Customer</button> */}
-                        {/* <FetchCustomerBtn /> */}
                     </div>
-                    <div className="grid grid-cols-2 text-white gap-4 p-5">
-                        <div className="rounded-md">
+                    <div className="grid grid-cols-2 text-white gap-4 p-5 h-[70vh]">
+                        <div className="rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item1.jpeg"}
                                 className="w-ful h-full"
@@ -114,7 +98,7 @@ export default function Landing() {
                                 alt="item1"
                             />
                         </div>
-                        <div className="rounded-md">
+                        <div className="rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item2.png"}
                                 className=""
@@ -123,7 +107,7 @@ export default function Landing() {
                                 alt="item2"
                             />
                         </div>
-                        <div className="col-span-2 rounded-md">
+                        <div className="col-span-2 rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item3.png"}
                                 className=""
@@ -132,7 +116,7 @@ export default function Landing() {
                                 alt="item3"
                             />
                         </div>
-                        <div className="rounded-md">
+                        <div className="rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item4.png"}
                                 className=""
@@ -141,7 +125,7 @@ export default function Landing() {
                                 alt="item4"
                             />
                         </div>
-                        <div className="rounded-md">
+                        <div className="rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item5.png"}
                                 className=""
@@ -150,7 +134,7 @@ export default function Landing() {
                                 alt="item5"
                             />
                         </div>
-                        <div className="col-span-2 rounded-md">
+                        <div className="col-span-2 rounded-md flex justify-center">
                             <Image
                                 src={"/assets/materials/landing_item6.png"}
                                 className=""
@@ -160,8 +144,8 @@ export default function Landing() {
                             />
                         </div>
                     </div>
-                    <button onClick={handlePwp} className="text-white p-5">pay with paotang</button>
-                    <button onClick={handleOpenPwp} className="text-white">openPwP</button>
+                    {/* <button onClick={handlePwp} className="text-white p-5">pay with paotang</button>
+                    <button onClick={handleOpenPwp} className="text-white">openPwP</button> */}
                 </div>
             {/* )
             } */}
