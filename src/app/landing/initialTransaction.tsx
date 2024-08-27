@@ -2,8 +2,8 @@ import axios from "axios";
 
 export const InitialTransaction = async () => {
     const token = localStorage.getItem("pwpToken");
-    // const url = `api/transaction`;
-    const url = `https://oapi-2-legged-external-sandbox-gw-uat.arisetech.dev/pwp/v1/open-api/payment/deeplink`;
+    const url = `api/transaction`;
+    // const url = `https://oapi-2-legged-external-sandbox-gw-uat.arisetech.dev/pwp/v1/open-api/payment/deeplink`;
     const headers = { 'Authorization': `Bearer ${token}` }
 
     const paymentInfo = {
